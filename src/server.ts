@@ -41,7 +41,7 @@ function autentica(req: Request, res: Response, next: Function) {
     return;
   }
 
-  const token = authHeader.split(' ')[1];
+  const token = authHeader.split(' ')[1]!;
 
   try {
     const payload = jwt.verify(token, JWT_SECRET) as unknown as{ userId: number };
